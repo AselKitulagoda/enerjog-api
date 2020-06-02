@@ -3,17 +3,15 @@
   "version": "4.1.0",
   "adonis-version": "4.1.0",
   "description": "Adonisjs boilerplate for API server with pre-configured JWT",
-  "main": "index.js",  
+  "main": "index.js",
   "engines": {
     "node": "10.x",
     "npm": "6.x"
   },
-
   "scripts": {
     "start": "node server.js",
     "test": "node ace test",
     "heroku-postbuild": "npm run build"
-
   },
   "keywords": [
     "adonisjs",

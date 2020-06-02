@@ -7,10 +7,7 @@ class User extends Model {
   static boot () {
     super.boot()
 
-    /**
-     * A hook to hash the user password before saving
-     * it to the database.
-     */
+    // Adding a hook, which allows us to store the passwords in encrypted form
     this.addHook('beforeSave', async userInstance => {
       if (userInstance.dirty.password) {
         userInstance.password = await Hash.make(userInstance.password)
@@ -32,9 +29,7 @@ class User extends Model {
     return this.hasMany('App/Models/Token')
   }
 
-  /**
-   * Hide password when user is fetched.
-   */
+  // Returning the password value from db as a hidden text
   static get hidden () {
     return ['password']
   }

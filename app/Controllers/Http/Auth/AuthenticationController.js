@@ -18,7 +18,7 @@ class AuthenticationController {
     } catch (error) {
       return response.status(400).json({
         status: 'error',
-        message: 'There was a problem creating the user, please try again later.'
+        message: 'Sorry, there has been an issue. Try again!'
       })
     }
   }
@@ -36,7 +36,7 @@ class AuthenticationController {
     } catch (error) {
       response.status(400).json({
         status: 'error',
-        message: 'Invalid email/password.'
+        message: 'Invalid credentials!'
       })
     }
   }
