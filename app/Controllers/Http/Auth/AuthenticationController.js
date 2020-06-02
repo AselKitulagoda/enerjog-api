@@ -64,7 +64,7 @@ class AuthenticationController {
       const newuserdata = request.only(['colour','model'])
       console.log("got here")
       let currentuser = await User.find(auth.user)
-      // currentuser.model = newuserdata.model
+      currentuser.model = newuserdata.model
       // currentuser.colour = newuserdata.colour
       return response.json({
         // if a json response is eturned then return a sucessful status and a auth token  
