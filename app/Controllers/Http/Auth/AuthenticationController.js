@@ -64,17 +64,17 @@ class AuthenticationController {
     try {
       const newuserdata = request.only(['colour','model'])
       console.log("got here")
-      // console.log(auth.user)
+      console.log(auth.user)
       let currentuser = await User.find(auth.user.id)
-      // console.log(currentuser.model)
+      console.log(currentuser.model)
       currentuser.model = newuserdata.model
       currentuser.colour = newuserdata.colour
+      await currentuser.save()
       console.log(currentuser)
       return response.json({
         status: 'success',
         data: auth.user
       })
-
     }
      catch (error) {
       // if the response returns an error return an error JSON response 400
