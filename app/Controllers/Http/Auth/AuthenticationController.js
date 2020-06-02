@@ -63,7 +63,7 @@ class AuthenticationController {
     try {
       const newuserdata = request.only(['colour','model'])
       console.log("got here")
-      let currentuser = await User.find(auth)
+      let currentuser = await User.find(auth.user)
       currentuser.model = newuserdata.model
       currentuser.colour = newuserdata.colour
       return response.json({
