@@ -69,7 +69,7 @@ class AuthenticationController {
       return response.json({
         // if a json response is eturned then return a sucessful status and a auth token  
         status: 'success',
-        data: auth.user.model
+        data: auth.user
       })
 
     }
