@@ -52,6 +52,7 @@ class AuthenticationController {
   }
 // handles myprofile case
   async me ({ auth, response }) {
+    // console.log(auth.user)
     return response.json({
       // if a json reson has already been retrieved keep status as success and set the authorized user 
       status: 'success',
@@ -63,11 +64,13 @@ class AuthenticationController {
     try {
       const newuserdata = request.only(['colour','model'])
       console.log("got here")
-      let currentuser = await User.find(auth.user.email)
+      // console.log(auth.user)
+      let currentuser = await User.find(auth.user.id)
+      // console.log(currentuser.model)
       currentuser.model = newuserdata.model
       currentuser.colour = newuserdata.colour
+      console.log(currentuser)
       return response.json({
-        // if a json response is eturned then return a sucessful status and a auth token  
         status: 'success',
         data: auth.user
       })
