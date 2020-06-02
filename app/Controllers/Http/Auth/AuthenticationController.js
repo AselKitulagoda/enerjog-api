@@ -61,7 +61,7 @@ class AuthenticationController {
 
   async change({request,auth,response}){
     try {
-      const newuserdata = request.only(['model','colour']) 
+      const newuserdata = request.only(['colour','model']) 
       let currentuser = await User.find(auth.user.email)
       currentuser.model = newuserdata.model
       currentuser.colour = newuserdata.colour
