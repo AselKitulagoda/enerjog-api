@@ -85,6 +85,19 @@ class AuthenticationController {
     }
   }
 
+  async destroyRec ({request, auth, response }) {
+    console.log(auth.user)
+    const delete_flag = request.only(['delete'])
+    let currentuser = await User.find(auth.user.id)
+    await currentuser.delete()
+    console.log("deleted")
+    return response.json({
+      // if a json reson has already been retrieved keep status as success and set the authorized user 
+      status: 'success',
+      data: auth.user
+    })
+  }
+
   
 }
 
